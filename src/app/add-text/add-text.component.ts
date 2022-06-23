@@ -1,32 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Todo } from '../models/todo.interface';
 
 @Component({
   selector: 'app-add-text',
   templateUrl: './add-text.component.html',
-  styleUrls: ['./add-text.component.css']
+  styleUrls: ['./add-text.component.css'],
 })
-export class AddTextComponent implements OnInit {
+export class AddTextComponent {
+  public todoInput = new FormControl<string>('');
+  public todos: Todo[] = [];
 
-  public todoInput = new FormControl()
-
-  constructor() { }
-  
-  ngOnInit(): void {
-    this.todoInput.valueChanges.subscribe(val => console.log(val))
+  public add(value: string): void {
+    // TODO: add functionality for id generation
+    // TODO!: check what is FormControl Validators
+    // TODO: apply no value validator
+    this.todos.push(new Todo('some id', value));
+    this.todoInput.reset();
   }
-  add(){
-    const div = document.getElementById('div')
-    const p = document.createElement('p')
-    div?.appendChild(p)
-     p.innerHTML = this.todoInput.value
-     console.log(div?.children.length)
-     const it = div?.children.length;
-  
-  }
-
-  
-  
-  
 }
-
