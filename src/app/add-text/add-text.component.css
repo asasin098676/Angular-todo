@@ -1,0 +1,26 @@
+input {
+  margin: 30px;
+  border-radius: 13px;
+  background-color: #b4d5f844;
+  height: 25px;
+  width: 270px;
+}
+button {
+  margin-top: 10px;
+  border-radius: 9px;
+  height: 20px;
+  width: 80px;
+  color: blue;
+  background-color: rgba(0, 255, 255, 0);
+}
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  margin-bottom: -35px;
+  font-family: fantasy;
+  font-size: 70px;
+  color: rgb(34, 37, 37);
+}

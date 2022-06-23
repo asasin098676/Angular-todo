@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    border: 0;
+    background-image: url(https://oir.mobi/uploads/posts/2021-03/1616571308_24-p-fon-dlya-zastavki-27.jpg);
+}
