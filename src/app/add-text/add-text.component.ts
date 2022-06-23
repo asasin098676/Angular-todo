@@ -18,4 +18,6 @@ export class AddTextComponent {
     this.todos.push(new Todo('some id', value));
     this.todoInput.reset();
   }
+
+  public generateId() {}
 }
