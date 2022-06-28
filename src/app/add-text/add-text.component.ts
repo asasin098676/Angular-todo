@@ -17,3 +17,10 @@ export class AddTextComponent {
     this.todoInput.reset();
   }
 }
+
+// Read what is Services and what they are used for
+// Create LocalStorage Service and implement get() set() methods with custom prefix TODO_
+// Create TodoService for todos storing
+// in the getTodos() method you will need to retrieve items from localstorage
+// Inject LocalStorage serivce into TodoService to use localstorage functionality
+// Inject todo service into the add componet and use that service for todos rendering
