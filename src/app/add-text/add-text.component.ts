@@ -1,32 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Todo } from '../models/todo.interface';
+import uniqid from 'uniqid';
 
 @Component({
   selector: 'app-add-text',
   templateUrl: './add-text.component.html',
-  styleUrls: ['./add-text.component.css']
+  styleUrls: ['./add-text.component.css'],
 })
-export class AddTextComponent implements OnInit {
+export class AddTextComponent {
+  public todoInput = new FormControl<string>('', [Validators.required]);
+  public todos: Todo[] = [];
 
-  public todoInput = new FormControl()
-
-  constructor() { }
-  
-  ngOnInit(): void {
-    this.todoInput.valueChanges.subscribe(val => console.log(val))
+  public add(value: string): void {
+    this.todos.push(new Todo(uniqid(), value));
+    this.todoInput.reset();
   }
-  add(){
-    const div = document.getElementById('div')
-    const p = document.createElement('p')
-    div?.appendChild(p)
-     p.innerHTML = this.todoInput.value
-     console.log(div?.children.length)
-     const it = div?.children.length;
-  
-  }
-
-  
-  
-  
 }
-

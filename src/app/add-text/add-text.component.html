@@ -1,5 +1,11 @@
 <div id="div">
   <h1>add a task</h1>
   <input type="text" [formControl]="todoInput" />
-  <button (click)="add()">add</button>
+  <button (click)="add($any(todoInput.value))" [disabled]="todoInput.invalid">
+    add
+  </button>
+
+  <div class="todos">
+    <div *ngFor="let todo of todos">{{ todo.value }}</div>
+  </div>
 </div>
