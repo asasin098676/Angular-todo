@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Todo } from '../models/todo.interface';
+import uniqid from 'uniqid';
 
 @Component({
   selector: 'app-add-text',
@@ -8,16 +9,11 @@ import { Todo } from '../models/todo.interface';
   styleUrls: ['./add-text.component.css'],
 })
 export class AddTextComponent {
-  public todoInput = new FormControl<string>('');
+  public todoInput = new FormControl<string>('', [Validators.required]);
   public todos: Todo[] = [];
 
   public add(value: string): void {
-    // TODO: add functionality for id generation
-    // TODO!: check what is FormControl Validators
-    // TODO: apply no value validator
-    this.todos.push(new Todo('some id', value));
+    this.todos.push(new Todo(uniqid(), value));
     this.todoInput.reset();
   }
-
-  public generateId() {}
 }
