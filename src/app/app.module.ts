@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AddTextComponent } from './add-text/add-text.component';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { HeroesComponent } from './heroes/heroes.component';
+import { LocalStorageService } from './local-storage.service';
 
 const appRoutes: Routes = [
   { path: '', component: RegistrationComponent },
@@ -16,11 +16,13 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, RegistrationComponent, AddTextComponent],
+
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
   bootstrap: [AppComponent],
+  providers: [LocalStorageService],
 })
 export class AppModule {}

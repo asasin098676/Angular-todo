@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Todo } from '../models/todo.interface';
 import uniqid from 'uniqid';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-add-text',
@@ -11,6 +12,15 @@ import uniqid from 'uniqid';
 export class AddTextComponent {
   public todoInput = new FormControl<string>('', [Validators.required]);
   public todos: Todo[] = [];
+  public users;
+  private lockalText;
+
+  constructor(lockalStorage: LocalStorageService) {
+    this.lockalText = lockalStorage;
+  }
+  ngOnIt() {
+    this.users = this.lockalText.getAll();
+  }
 
   public add(value: string): void {
     this.todos.push(new Todo(uniqid(), value));
